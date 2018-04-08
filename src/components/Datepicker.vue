@@ -1,6 +1,6 @@
 <template>
   <div class="vdp-datepicker" :class="[wrapperClass, isRtl ? 'rtl' : '']">
-    <div :class="{'input-group' : bootstrapStyling}">
+    <div :class="{'form-group' : bootstrapStyling}">
       <!-- Calendar Button -->
       <span v-if="calendarButton" class="vdp-datepicker__calendar-button" :class="{'input-group-addon' : bootstrapStyling}" @click="showCalendar" v-bind:style="{'cursor:not-allowed;' : disabledPicker}">
         <i :class="calendarButtonIcon">
@@ -8,6 +8,8 @@
           <span v-if="!calendarButtonIcon">&hellip;</span>
         </i>
       </span>
+      <!-- Input -->
+      <label>{{ label }}</label>
       <!-- Input -->
       <input
         :type="inline ? 'hidden' : 'text'"
@@ -151,6 +153,7 @@ export default {
     initialView: String,
     disabledPicker: Boolean,
     required: Boolean,
+    label: String,
     minimumView: {
       type: String,
       default: 'day'
